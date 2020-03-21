@@ -25,8 +25,8 @@ export default {
     ...theme.colors,
   },
   fonts: {
-    body: "Bree Serif, serif",
-    heading: "Bree Serif, serif",
+    body: "Rajdhani, serif",
+    heading: "Rajdhani, serif",
     mono: "Menlo, monospace",
   },
   icons: {

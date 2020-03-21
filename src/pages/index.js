@@ -3,6 +3,7 @@ import axios from "axios"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import "../style.css"
 
 import { Box, Image, Flex, Link, Button, Text } from "@chakra-ui/core"
 
@@ -41,6 +42,22 @@ function IndexPage() {
           objectFit="cover"
           style={{ filter: "grayscale(100%) contrast(60%)" }}
         />
+        <Text
+          position="absolute"
+          top="16"
+          left="48%"
+          className="glow"
+          fontSize="5xl"
+          mx="auto"
+          lineHeight="0.8"
+          fontWeight="bold"
+          textAlign="center"
+        >
+          Good
+          <br />
+          News
+          <br /> Only
+        </Text>
         <Flex
           direction="column"
           pos="relative"
@@ -52,6 +69,7 @@ function IndexPage() {
           <Link
             color="white"
             fontSize={["4xl", "6xl"]}
+            fontWeight="bold"
             maxW="64rem"
             textAlign="center"
             lineHeight="1"
