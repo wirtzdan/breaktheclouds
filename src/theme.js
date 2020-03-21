@@ -20,6 +20,10 @@ const customIcons = {
 
 export default {
   ...theme,
+  colors: {
+    background: "#0B1E29",
+    ...theme.colors,
+  },
   fonts: {
     body: "Bree Serif, serif",
     heading: "Bree Serif, serif",
