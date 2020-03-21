@@ -20,6 +20,7 @@ const IndexPage = () => (
         src="https://mediadc.brightspotcdn.com/dims4/default/070a5d2/2147483647/strip/true/crop/2287x1201+0+61/resize/1200x630!/quality/90/?url=https%3A%2F%2Fmediadc.brightspotcdn.com%2F32%2F4c%2Fe60eb0044d9596e3f9b1a01f1cbd%2Ftsai.jpg"
         opacity={0.15}
         objectFit="cover"
+        style={{ filter: "grayscale(100%) blur(4px) contrast(120%)" }}
       />
       <Flex
         direction="column"
