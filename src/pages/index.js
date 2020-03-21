@@ -37,10 +37,10 @@ function IndexPage() {
           fontWeight="bold"
           textAlign="center"
         >
-          Good
+          GOOD
           <br />
-          News
-          <br /> Only
+          NEWS
+          <br /> ONLY
         </Text>
       </Flex>
       <Box bg="background" width="100vh%" height="100vh" p="4">
