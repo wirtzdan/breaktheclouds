@@ -3,7 +3,7 @@ import React from "react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-import { Box, Image, Flex, Link, Text } from "@chakra-ui/core"
+import { Box, Image, Flex, Link, Button, Text } from "@chakra-ui/core"
 
 const IndexPage = () => (
   <Layout>
@@ -22,6 +22,7 @@ const IndexPage = () => (
         objectFit="cover"
       />
       <Flex
+        direction="column"
         pos="relative"
         width="100%"
         height="100%"
@@ -38,6 +39,17 @@ const IndexPage = () => (
         >
           Taiwan plans to donate 100,000 hospital masks to US per week
         </Link>
+        <Flex align="center" mt={8}>
+          <Text fontSize="lg" color="gray.100" mr={2}>
+            Share on
+          </Text>
+          <Button variantColor="gray" leftIcon="facebook" mr={2}>
+            Facebook
+          </Button>
+          <Button variantColor="gray" leftIcon="twitter">
+            Twitter
+          </Button>
+        </Flex>
       </Flex>
     </Box>
   </Layout>
