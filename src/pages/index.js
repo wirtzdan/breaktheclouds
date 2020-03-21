@@ -27,7 +27,7 @@ function IndexPage() {
   return (
     <Layout>
       <SEO title="Home" />
-      <Box bg="background" width="100vh%" height="100vh">
+      <Box bg="background" width="100vh%" height="100vh" p={4}>
         <Image
           position="absolute"
           top="0"
@@ -51,7 +51,7 @@ function IndexPage() {
         >
           <Link
             color="white"
-            fontSize="6xl"
+            fontSize={["4xl", "6xl"]}
             maxW="64rem"
             textAlign="center"
             lineHeight="1"
