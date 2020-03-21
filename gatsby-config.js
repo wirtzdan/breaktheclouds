@@ -31,7 +31,7 @@ module.exports = {
       resolve: "gatsby-plugin-web-font-loader",
       options: {
         google: {
-          families: ["Bree Serif", "Rajdhani"],
+          families: ["Rajdhani"],
         },
       },
     },
