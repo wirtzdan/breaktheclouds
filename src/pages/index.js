@@ -28,7 +28,22 @@ function IndexPage() {
   return (
     <Layout>
       <SEO title="Home" />
-      <Box bg="background" width="100vh%" height="100vh" p={4}>
+      <Flex position="absolute" top="16" width="100%" justify="center">
+        <Text
+          className="glow"
+          fontSize={["4xl", "5xl"]}
+          mx="auto"
+          lineHeight="0.8"
+          fontWeight="bold"
+          textAlign="center"
+        >
+          Good
+          <br />
+          News
+          <br /> Only
+        </Text>
+      </Flex>
+      <Box bg="background" width="100vh%" height="100vh" p="4">
         <Image
           position="absolute"
           top="0"
@@ -42,22 +57,7 @@ function IndexPage() {
           objectFit="cover"
           style={{ filter: "grayscale(100%) contrast(60%)" }}
         />
-        <Text
-          position="absolute"
-          top="16"
-          left="48%"
-          className="glow"
-          fontSize="5xl"
-          mx="auto"
-          lineHeight="0.8"
-          fontWeight="bold"
-          textAlign="center"
-        >
-          Good
-          <br />
-          News
-          <br /> Only
-        </Text>
+
         <Flex
           direction="column"
           pos="relative"
