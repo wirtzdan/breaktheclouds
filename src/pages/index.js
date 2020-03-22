@@ -56,7 +56,7 @@ function IndexPage() {
           justify="center"
           align="center"
         >
-          <Text opacity="0.65" _hover={{ opacity: 1 }} fontSize={["xl", "2xl"]}>
+          <Text opacity="0.5" fontSize={["xl", "2xl"]} fontWeight="600">
             <TimeAgo date={state.date} ago /> by{" "}
             <Link
               href={"https://" + state.domain}
@@ -126,7 +126,10 @@ function IndexPage() {
             Refresh
           </Button>
         </Box>
-        <Text> {state.credit ? `Submitted by ${state.credit}` : null}</Text>
+        <Text fontWeight="600">
+          {" "}
+          {state.credit ? `Submitted by ${state.credit}` : null}
+        </Text>
         <Box>
           <Link
             href="https://twitter.com/_breaktheclouds"

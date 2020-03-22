@@ -48,14 +48,17 @@ export default function LearnMore() {
                 @wirtzdan
               </Link>{" "}
               in the{" "}
-              <Link href="https://twitter.com/WirvsVirusHack">
+              <Link href="https://twitter.com/WirvsVirusHack" isExternal>
                 #wirvsvirsus Hackathon
               </Link>
               .
             </Text>
 
             <ModalFooter>
-              <Link href="" isExternal>
+              <Link
+                href="https://github.com/wirtzdan/breaktheclouds"
+                isExternal
+              >
                 <Button>Source Code</Button>
               </Link>
             </ModalFooter>
