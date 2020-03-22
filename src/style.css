@@ -14,10 +14,10 @@
   color: var(--neon-text-color);
   -webkit-animation: flicker 2s linear infinite;
   -moz-animation: flicker 2s linear infinite;
-  animation: flicker 2s linear infinite;
+  /*   animation: flicker 2s linear infinite;
+ */
   text-shadow: 0 0 4rem var(--neon-border-color),
     0 0 0.2rem var(--neon-border-color);
-  transform: rotate(-2deg);
 }
 
 @keyframes flicker {

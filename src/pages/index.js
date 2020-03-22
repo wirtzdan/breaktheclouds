@@ -4,6 +4,7 @@ import axios from "axios"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import "../style.css"
+import bctlogo from "../images/btc-logo.svg"
 import { Box, Image, Flex, Link, Button, Text } from "@chakra-ui/core"
 
 import SuggestNews from "../components/suggestnews"
@@ -98,7 +99,7 @@ function IndexPage() {
         </Flex>
       </Box>
       <Flex position="absolute" top="16" width="100%" justify="center">
-        <Text
+        {/*         <Text
           className="glow"
           fontSize={["4xl", "5xl"]}
           mx="auto"
@@ -110,7 +111,8 @@ function IndexPage() {
           #BREAK
           <br />
           THE CLOUDS
-        </Text>
+        </Text> */}
+        <Image className="glow" src={bctlogo} />
       </Flex>
       <Box position="absolute" bottom="10" right="10">
         <SuggestNews />

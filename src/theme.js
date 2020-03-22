@@ -21,12 +21,12 @@ const customIcons = {
 export default {
   ...theme,
   colors: {
-    background: "#0B1E29",
     ...theme.colors,
+    background: "#0B1E29",
   },
   fonts: {
-    heading: "Rajdhani, serif",
     ...theme.fonts,
+    heading: "Rajdhani, serif",
   },
   icons: {
     ...theme.icons,
