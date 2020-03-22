@@ -1,14 +1,16 @@
 import React from "react"
 
 import PropTypes from "prop-types"
-import { ThemeProvider, CSSReset } from "@chakra-ui/core"
+import { ThemeProvider, CSSReset, ColorModeProvider } from "@chakra-ui/core"
 import theme from "../theme"
 
 const Layout = ({ children }) => {
   return (
     <ThemeProvider theme={theme}>
-      <CSSReset />
-      <main>{children}</main>
+      <ColorModeProvider value="dark">
+        <CSSReset />
+        <main>{children}</main>
+      </ColorModeProvider>
     </ThemeProvider>
   )
 }
