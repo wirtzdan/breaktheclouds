@@ -99,24 +99,31 @@ function IndexPage() {
         </Flex>
       </Box>
       <Flex position="absolute" top="16" width="100%" justify="center">
-        {/*         <Text
-          className="glow"
-          fontSize={["4xl", "5xl"]}
-          mx="auto"
-          lineHeight="0.8"
-          fontWeight="bold"
-          textAlign="center"
-          fontFamily="Rajdhani, sans-serif;"
-        >
-          #BREAK
-          <br />
-          THE CLOUDS
-        </Text> */}
         <Image className="glow" src={bctlogo} />
       </Flex>
-      <Box position="absolute" bottom="10" right="10">
-        <SuggestNews />
-      </Box>
+      <Flex
+        width="100%"
+        position="absolute"
+        bottom={8}
+        px={8}
+        alignItems="center"
+        justify="space-between"
+      >
+        <Box>
+          <Text>Posted by 5 hours ago by {state.site}</Text>
+        </Box>
+        <Box>
+          <SuggestNews />
+          <Link
+            href="https://twitter.com/_breaktheclouds"
+            className="no-underline"
+          >
+            <Button leftIcon="twitter" variant="ghost">
+              @_breaktheclouds
+            </Button>
+          </Link>
+        </Box>
+      </Flex>
     </Layout>
   )
 }
