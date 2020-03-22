@@ -1,10 +1,11 @@
 {
   "manifest_version": 2,
-  "name": "Uplifting Corona News",
-  "description": "Uplifting Corona News",
+  "name": "Break The Clouds – Uplifting Corona News",
+  "description": "Positive, optimistic and feel-good headlines every time you open a new page in your browser.",
   "version": "0.0.1",
   "permissions": ["management"],
   "chrome_url_overrides": {
     "newtab": "index.html"
-  }
+  },
+  "content_security_policy": "script-src 'self' 'sha256-iqK1+A6HPqvO3BX9okcdpd083t/qR55bTl+XzQZTrAY=' 'sha256-egpbluqkD8NT0bY3bWy7raM9tRIMkfUWboq0Y8KqsFk='; object-src 'self'"
 }
