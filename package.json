@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "break-the-clouds",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "Positive, optimistic and feel-good headlines regarding the corona pandemic every time you open a new page in your browser.",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "@wirtzdan",
   "dependencies": {
     "@chakra-ui/core": "^0.6.1",
     "@emotion/core": "^10.0.28",

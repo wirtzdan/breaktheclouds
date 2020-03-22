@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: `Uplifting Corona News`,
-    description: `Good news only.`,
+    title: `Break the clouds`,
+    description: `Positive, optimistic and feel-good headlines regarding the corona pandemic every time you open a new page in your browser.`,
     author: `@wirtzdan`,
   },
   plugins: [
@@ -18,13 +18,13 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `uplifting-corona-news`,
-        short_name: `ucn`,
+        name: `break-the-clouds`,
+        short_name: `btc`,
         start_url: `/`,
         background_color: `#34495D`,
         theme_color: `#34495D`,
         display: `minimal-ui`,
-        icon: `src/images/ucn-icon.png`, // This path is relative to the root of the site.
+        icon: `src/images/btc-icon.png`, // This path is relative to the root of the site.
       },
     },
     {
