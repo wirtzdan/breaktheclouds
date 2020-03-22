@@ -4,8 +4,9 @@ import axios from "axios"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import "../style.css"
-
 import { Box, Image, Flex, Link, Button, Text } from "@chakra-ui/core"
+
+import SuggestNews from "../components/suggestnews"
 
 function IndexPage() {
   const [state, setState] = useState([])
@@ -28,20 +29,7 @@ function IndexPage() {
   return (
     <Layout>
       <SEO title="Home" />
-      <Flex position="absolute" top="16" width="100%" justify="center">
-        <Text
-          className="glow"
-          fontSize={["4xl", "5xl"]}
-          mx="auto"
-          lineHeight="0.8"
-          fontWeight="bold"
-          textAlign="center"
-        >
-          #BREAK
-          <br />
-          THE CLOUDS
-        </Text>
-      </Flex>
+
       <Box bg="background" width="100vh%" height="100vh" p="4">
         <Image
           position="absolute"
@@ -69,15 +57,17 @@ function IndexPage() {
             color="white"
             fontSize={["4xl", "6xl"]}
             fontWeight="bold"
+            fontFamily=""
             maxW="64rem"
             textAlign="center"
             lineHeight="1"
             href={state.link}
+            fontFamily="Rajdhani, sans-serif;"
           >
             {state.title}
           </Link>
           <Flex align="center" mt={8}>
-            <Text fontSize="xl" color="gray.100" mr={2} fontWeight="semibold">
+            <Text fontSize="xl" color="gray.100" mr={2} fontWeight="medium">
               Share on
             </Text>
             <Link
@@ -104,6 +94,24 @@ function IndexPage() {
             </Link>
           </Flex>
         </Flex>
+      </Box>
+      <Flex position="absolute" top="16" width="100%" justify="center">
+        <Text
+          className="glow"
+          fontSize={["4xl", "5xl"]}
+          mx="auto"
+          lineHeight="0.8"
+          fontWeight="bold"
+          textAlign="center"
+          fontFamily="Rajdhani, sans-serif;"
+        >
+          #BREAK
+          <br />
+          THE CLOUDS
+        </Text>
+      </Flex>
+      <Box position="absolute" bottom="10" right="10">
+        <SuggestNews />
       </Box>
     </Layout>
   )
