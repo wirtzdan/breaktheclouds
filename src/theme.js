@@ -25,9 +25,8 @@ export default {
     ...theme.colors,
   },
   fonts: {
-    body: "Rajdhani, serif",
     heading: "Rajdhani, serif",
-    mono: "Menlo, monospace",
+    ...theme.fonts,
   },
   icons: {
     ...theme.icons,
