@@ -24,7 +24,7 @@ module.exports = {
         background_color: `#34495D`,
         theme_color: `#34495D`,
         display: `minimal-ui`,
-        icon: `src/images/btc-icon.png`, // This path is relative to the root of the site.
+        icon: `src/images/btc-logo.png`, // This path is relative to the root of the site.
       },
     },
     {
