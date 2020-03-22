@@ -5,6 +5,10 @@
   --neon-border-color: #54d0db;
 }
 
+.no-underline:hover {
+  text-decoration: none !important;
+}
+
 .glow {
   font-family: "Rajdhani", sans-serif;
   color: var(--neon-text-color);

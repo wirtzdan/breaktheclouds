@@ -75,6 +75,7 @@ function IndexPage() {
                 state.link
               )}&t=${encodeURIComponent(state.title + " #breaktheclouds")}`}
               title="Share on Facebook"
+              className="no-underline"
               isExternal
             >
               <Button variantColor="gray" leftIcon="facebook" mr={2}>
@@ -87,6 +88,7 @@ function IndexPage() {
               )}&text=${encodeURIComponent(state.title + " #breaktheclouds")}`}
               title="Share on Facebook"
               isExternal
+              className="no-underline"
             >
               <Button variantColor="gray" leftIcon="twitter">
                 Twitter
