@@ -40,6 +40,7 @@ function IndexPage() {
           bottom="0"
           height="100%"
           width="100%"
+          display={state.image ? "block" : "none"}
           src={state.image}
           opacity={0.15}
           objectFit="cover"
