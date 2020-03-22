@@ -37,10 +37,9 @@ function IndexPage() {
           fontWeight="bold"
           textAlign="center"
         >
-          GOOD
+          #BREAK
           <br />
-          NEWS
-          <br /> ONLY
+          THE CLOUDS
         </Text>
       </Flex>
       <Box bg="background" width="100vh%" height="100vh" p="4">
@@ -78,15 +77,31 @@ function IndexPage() {
             {state.title}
           </Link>
           <Flex align="center" mt={8}>
-            <Text fontSize="lg" color="gray.100" mr={2}>
+            <Text fontSize="xl" color="gray.100" mr={2} fontWeight="semibold">
               Share on
             </Text>
-            <Button variantColor="gray" leftIcon="facebook" mr={2}>
-              Facebook
-            </Button>
-            <Button variantColor="gray" leftIcon="twitter">
-              Twitter
-            </Button>
+            <Link
+              href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
+                state.link
+              )}&t=${encodeURIComponent(state.title + " #breaktheclouds")}`}
+              title="Share on Facebook"
+              isExternal
+            >
+              <Button variantColor="gray" leftIcon="facebook" mr={2}>
+                Facebook
+              </Button>
+            </Link>
+            <Link
+              href={`https://twitter.com/share?url=${encodeURIComponent(
+                state.link
+              )}&text=${encodeURIComponent(state.title + " #breaktheclouds")}`}
+              title="Share on Facebook"
+              isExternal
+            >
+              <Button variantColor="gray" leftIcon="twitter">
+                Twitter
+              </Button>
+            </Link>
           </Flex>
         </Flex>
       </Box>
