@@ -55,7 +55,7 @@ export default function LearnMore() {
             </Text>
 
             <ModalFooter>
-              <Link href="">
+              <Link href="" isExternal>
                 <Button>Source Code</Button>
               </Link>
             </ModalFooter>

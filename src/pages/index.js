@@ -58,7 +58,11 @@ function IndexPage() {
         >
           <Text opacity="0.65" _hover={{ opacity: 1 }} fontSize={["xl", "2xl"]}>
             <TimeAgo date={state.date} ago /> by{" "}
-            <Link href={state.domain} isExternal textDecoration="underline">
+            <Link
+              href={"https://" + state.domain}
+              isExternal
+              textDecoration="underline"
+            >
               {state.site}
             </Link>
           </Text>
@@ -72,6 +76,7 @@ function IndexPage() {
             lineHeight="1"
             href={state.link}
             fontFamily="Rajdhani, sans-serif;"
+            isExternal
           >
             {state.title}
           </Link>
@@ -126,6 +131,7 @@ function IndexPage() {
           <Link
             href="https://twitter.com/_breaktheclouds"
             className="no-underline"
+            isExternal
           >
             <Button leftIcon="twitter" variant="ghost">
               Twitter

@@ -3,7 +3,13 @@
   "name": "Break The Clouds – Uplifting Corona News",
   "description": "Positive, optimistic and feel-good headlines every time you open a new page in your browser.",
   "version": "0.0.1",
+  "browser_action": {},
   "permissions": ["management"],
+  "icons": {
+    "16": "./extension-icons/icon-16.png",
+    "48": "./extension-icons/icon-48.png",
+    "128": "./extension-icons/icon-128.png"
+  },
   "chrome_url_overrides": {
     "newtab": "index.html"
   },

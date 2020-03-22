@@ -10,14 +10,13 @@
 }
 
 .flicker {
-  font-family: "Rajdhani", sans-serif;
+  /*   font-family: "Rajdhani", sans-serif;
   color: var(--neon-text-color);
   -webkit-animation: flicker 2s linear infinite;
   -moz-animation: flicker 2s linear infinite;
-  /*   animation: flicker 2s linear infinite;
- */
+   animation: flicker 2s linear infinite;
   text-shadow: 0 0 4rem var(--neon-border-color),
-    0 0 0.2rem var(--neon-border-color);
+    0 0 0.2rem var(--neon-border-color); */
 }
 
 @keyframes flicker {
