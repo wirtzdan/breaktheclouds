@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react"
 import axios from "axios"
+import TimeAgo from "react-timeago"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -14,7 +15,7 @@ function IndexPage() {
 
   async function getRandomNews() {
     const response = await axios.get(
-      `https://v2-api.sheety.co/dd25b99d32c98f422ee8aa482ec596a2/upliftingCoronaNews/news`
+      `https://v2-api.sheety.co/dd25b99d32c98f422ee8aa482ec596a2/breaktheclouds/news`
     )
 
     const randomNews =
@@ -30,7 +31,6 @@ function IndexPage() {
   return (
     <Layout>
       <SEO title="Home" />
-
       <Box bg="background" width="100vh%" height="100vh" p="4">
         <Image
           position="absolute"
@@ -43,7 +43,7 @@ function IndexPage() {
           src={state.image}
           opacity={0.15}
           objectFit="cover"
-          style={{ filter: "grayscale(100%) contrast(60%)" }}
+          style={{ filter: "grayscale(100%) contrast(60%) brightness(140%)" }}
         />
 
         <Flex
@@ -79,7 +79,7 @@ function IndexPage() {
               className="no-underline"
               isExternal
             >
-              <Button variantColor="gray" leftIcon="facebook" mr={2}>
+              <Button variantColor="gray" leftIcon="facebookfull" mr={2}>
                 Facebook
               </Button>
             </Link>
@@ -91,16 +91,14 @@ function IndexPage() {
               isExternal
               className="no-underline"
             >
-              <Button variantColor="gray" leftIcon="twitter">
+              <Button variantColor="gray" leftIcon="twitterfull">
                 Twitter
               </Button>
             </Link>
           </Flex>
         </Flex>
       </Box>
-      <Flex position="absolute" top="16" width="100%" justify="center">
-        <Image className="glow" src={bctlogo} />
-      </Flex>
+
       <Flex
         width="100%"
         position="absolute"
@@ -110,19 +108,30 @@ function IndexPage() {
         justify="space-between"
       >
         <Box>
-          <Text>Posted by 5 hours ago by {state.site}</Text>
-        </Box>
-        <Box>
           <SuggestNews />
+          <Button leftIcon="refresh" variant="ghost" onClick={getRandomNews}>
+            Refresh
+          </Button>
+        </Box>
+        <Text> {state.credit ? `Submitted by ${state.credit}` : null}</Text>
+        <Box>
           <Link
             href="https://twitter.com/_breaktheclouds"
             className="no-underline"
           >
             <Button leftIcon="twitter" variant="ghost">
-              @_breaktheclouds
+              Twitter
+            </Button>
+            <Button leftIcon="info" variant="ghost">
+              Learn more
             </Button>
           </Link>
         </Box>
+      </Flex>
+      <Flex position="absolute" top="16" width="100%" justify="center">
+        <Link href="https://twitter.com/_breaktheclouds" isExternal>
+          <Image className="flicker" src={bctlogo} w={300} />
+        </Link>
       </Flex>
     </Layout>
   )
