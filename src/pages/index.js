@@ -9,6 +9,7 @@ import bctlogo from "../images/btc-logo.svg"
 import { Box, Image, Flex, Link, Button, Text } from "@chakra-ui/core"
 
 import SuggestNews from "../components/suggestnews"
+import LearnMore from "../components/learnmore"
 
 function IndexPage() {
   const [state, setState] = useState([])
@@ -129,10 +130,8 @@ function IndexPage() {
             <Button leftIcon="twitter" variant="ghost">
               Twitter
             </Button>
-            <Button leftIcon="info" variant="ghost">
-              Learn more
-            </Button>
           </Link>
+          <LearnMore />
         </Box>
       </Flex>
       <Flex position="absolute" top="16" width="100%" justify="center">
