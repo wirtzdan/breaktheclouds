@@ -22,8 +22,8 @@ export default function SuggestNews() {
 
   return (
     <>
-      <Button onClick={onOpen} variant="ghost">
-        Suggest good news
+      <Button leftIcon="add" onClick={onOpen} variant="ghost">
+        Submit
       </Button>
 
       <Modal
@@ -48,9 +48,10 @@ export default function SuggestNews() {
           </ModalBody>
 
           <ModalFooter>
-            <Button variantColor="blue" mr={3}>
+            <Button leftIcon="add" variantColor="blue" mr={3}>
               Send Suggestion
             </Button>
+
             <Button onClick={onClose}>Cancel</Button>
           </ModalFooter>
         </ModalContent>

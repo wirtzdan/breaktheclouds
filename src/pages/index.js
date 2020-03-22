@@ -54,6 +54,12 @@ function IndexPage() {
           justify="center"
           align="center"
         >
+          <Text opacity="0.65" _hover={{ opacity: 1 }} fontSize={["xl", "2xl"]}>
+            <TimeAgo date={state.date} ago /> by{" "}
+            <Link href={state.domain} isExternal textDecoration="underline">
+              {state.site}
+            </Link>
+          </Text>
           <Link
             color="white"
             fontSize={["4xl", "6xl"]}
