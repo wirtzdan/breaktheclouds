@@ -31,7 +31,7 @@ function IndexPage() {
 
   return (
     <Layout>
-      <SEO title="Home" />
+      <SEO title="New Tab" />
       <Box bg="background" width="100vh%" height="100vh" p="4">
         <Image
           position="absolute"
