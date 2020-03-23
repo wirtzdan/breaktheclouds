@@ -6,27 +6,54 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import "../style.css"
 import bctlogo from "../images/btc-logo.svg"
-import { Box, Image, Flex, Link, Button, Text } from "@chakra-ui/core"
+import { Box, Image, Flex, Link, Button, Text, Spinner } from "@chakra-ui/core"
 
 import SuggestNews from "../components/suggestnews"
 import LearnMore from "../components/learnmore"
 
 function IndexPage() {
-  const [state, setState] = useState([])
+  const [newsline, setNewsline] = useState([])
+  const [isLoading, setIsLoading] = useState(false)
 
-  async function getRandomNews() {
-    const response = await axios.get(
-      `https://v2-api.sheety.co/dd25b99d32c98f422ee8aa482ec596a2/breaktheclouds/news`
-    )
+  async function loadExtension() {
+    chrome.storage.sync.get(["news"], function(result) {
+      if (Object.entries(result).length === 0) {
+        fetchNews()
+      } else {
+        const localNews = result.news
+        const randomNewsline =
+          localNews[Math.floor(Math.random() * localNews.length)]
+        setNewsline(randomNewsline)
+      }
+    })
+  }
 
-    const randomNews =
-      response.data.news[Math.floor(Math.random() * response.data.news.length)]
+  async function fetchNews() {
+    setIsLoading(true)
 
-    setState(randomNews)
+    await axios
+      .get(
+        `https://v2-api.sheety.co/dd25b99d32c98f422ee8aa482ec596a2/breaktheclouds/news`
+      )
+      .then(function(response) {
+        const news = response.data.news
+
+        chrome.storage.sync.set({
+          news: response.data.news,
+        })
+
+        const randomNewsline = news[Math.floor(Math.random() * news.length)]
+        setNewsline(randomNewsline)
+        setIsLoading(false)
+      })
+      .catch(function(error) {
+        console.log(error)
+        return error
+      })
   }
 
   useEffect(() => {
-    getRandomNews()
+    loadExtension()
   }, [])
 
   return (
@@ -41,8 +68,7 @@ function IndexPage() {
           bottom="0"
           height="100%"
           width="100%"
-          display={state.image ? "block" : "none"}
-          src={state.image}
+          src={newsline.image}
           opacity={0.15}
           objectFit="cover"
           style={{ filter: "grayscale(100%) contrast(60%) brightness(140%)" }}
@@ -56,58 +82,77 @@ function IndexPage() {
           justify="center"
           align="center"
         >
-          <Text opacity="0.5" fontSize={["xl", "2xl"]} fontWeight="600">
-            <TimeAgo date={state.date} ago /> by{" "}
-            <Link
-              href={"https://" + state.domain}
-              isExternal
-              textDecoration="underline"
-            >
-              {state.site}
-            </Link>
-          </Text>
-          <Link
-            color="white"
-            fontSize={["4xl", "6xl"]}
-            fontWeight="bold"
-            fontFamily=""
-            maxW="64rem"
-            textAlign="center"
-            lineHeight="1"
-            href={state.link}
-            fontFamily="Rajdhani, sans-serif;"
-            isExternal
+          <Spinner
+            thickness="4px"
+            speed="0.65s"
+            emptyColor="gray.200"
+            color="blue.500"
+            size="xl"
+            display={isLoading ? "block" : "none"}
+          />
+          <Flex
+            direction="column"
+            justify="center"
+            align="center"
+            display={isLoading ? "none" : "flex"}
           >
-            {state.title}
-          </Link>
-          <Flex align="center" mt={8}>
-            <Text fontSize="xl" color="gray.100" mr={2} fontWeight="medium">
-              Share on
+            <Text opacity="0.5" fontSize={["xl", "2xl"]} fontWeight="600">
+              <TimeAgo date={newsline.date} ago /> by{" "}
+              <Link
+                href={"https://" + newsline.domain}
+                isExternal
+                textDecoration="underline"
+              >
+                {newsline.site}
+              </Link>
             </Text>
             <Link
-              href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
-                state.link
-              )}&t=${encodeURIComponent(state.title + " #breaktheclouds")}`}
-              title="Share on Facebook"
-              className="no-underline"
+              color="white"
+              fontSize={["4xl", "6xl"]}
+              fontWeight="bold"
+              fontFamily=""
+              maxW="64rem"
+              textAlign="center"
+              lineHeight="1"
+              href={newsline.link}
+              fontFamily="Rajdhani, sans-serif;"
               isExternal
             >
-              <Button variantColor="gray" leftIcon="facebookfull" mr={2}>
-                Facebook
-              </Button>
+              {newsline.title}
             </Link>
-            <Link
-              href={`https://twitter.com/share?url=${encodeURIComponent(
-                state.link
-              )}&text=${encodeURIComponent(state.title + " #breaktheclouds")}`}
-              title="Share on Facebook"
-              isExternal
-              className="no-underline"
-            >
-              <Button variantColor="gray" leftIcon="twitterfull">
-                Twitter
-              </Button>
-            </Link>
+            <Flex align="center" mt={8}>
+              <Text fontSize="xl" color="gray.100" mr={2} fontWeight="medium">
+                Share on
+              </Text>
+              <Link
+                href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
+                  newsline.link
+                )}&t=${encodeURIComponent(
+                  newsline.title + " #breaktheclouds"
+                )}`}
+                title="Share on Facebook"
+                className="no-underline"
+                isExternal
+              >
+                <Button variantColor="gray" leftIcon="facebookfull" mr={2}>
+                  Facebook
+                </Button>
+              </Link>
+              <Link
+                href={`https://twitter.com/share?url=${encodeURIComponent(
+                  newsline.link
+                )}&text=${encodeURIComponent(
+                  newsline.title + " #breaktheclouds"
+                )}`}
+                title="Share on Facebook"
+                isExternal
+                className="no-underline"
+              >
+                <Button variantColor="gray" leftIcon="twitterfull">
+                  Twitter
+                </Button>
+              </Link>
+            </Flex>
           </Flex>
         </Flex>
       </Box>
@@ -122,13 +167,17 @@ function IndexPage() {
       >
         <Box>
           <SuggestNews />
-          <Button leftIcon="refresh" variant="ghost" onClick={getRandomNews}>
+          <Button
+            leftIcon="refresh"
+            variant="ghost"
+            onClick={() => loadExtension()}
+          >
             Refresh
           </Button>
         </Box>
         <Text fontWeight="600">
           {" "}
-          {state.credit ? `Submitted by ${state.credit}` : null}
+          {newsline.credit ? `Submitted by ${newsline.credit}` : null}
         </Text>
         <Box>
           <Link
