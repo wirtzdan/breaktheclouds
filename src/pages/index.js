@@ -15,41 +15,48 @@ function IndexPage() {
   const [newsline, setNewsline] = useState([])
   const [isLoading, setIsLoading] = useState(false)
 
-  async function loadExtension() {
-    chrome.storage.sync.get(["news"], function(result) {
-      if (Object.entries(result).length === 0) {
-        fetchNews()
-      } else {
-        const localNews = result.news
-        const randomNewsline =
-          localNews[Math.floor(Math.random() * localNews.length)]
-        setNewsline(randomNewsline)
-      }
-    })
-  }
-
-  async function fetchNews() {
-    setIsLoading(true)
-
-    await axios
+  async function fetchNewsFromAPI() {
+    const response = await axios
       .get(
         `https://v2-api.sheety.co/dd25b99d32c98f422ee8aa482ec596a2/breaktheclouds/news`
       )
       .then(function(response) {
         const news = response.data.news
-
-        chrome.storage.sync.set({
-          news: response.data.news,
-        })
-
-        const randomNewsline = news[Math.floor(Math.random() * news.length)]
-        setNewsline(randomNewsline)
-        setIsLoading(false)
+        console.log("fetchNewsFromAPI -> news", news)
+        return news
       })
       .catch(function(error) {
         console.log(error)
         return error
       })
+    return response
+  }
+
+  function setNewsToStorage(news) {
+    chrome.storage.local.set({ news: news }, function(result) {
+      console.log("setNewsToStorage -> news", news)
+      console.log("setNewsToStorage -> result", result)
+    })
+  }
+
+  async function loadExtension() {
+    chrome.storage.local.get(["news"], async function(result) {
+      if (Object.entries(result).length === 0) {
+        setIsLoading(true)
+        const news = await fetchNewsFromAPI()
+        const randomNewsline = news[Math.floor(Math.random() * news.length)]
+        setNewsToStorage(news)
+        setNewsline(randomNewsline)
+        setIsLoading(false)
+      } else {
+        const localNews = result.news
+        const randomNewsline =
+          localNews[Math.floor(Math.random() * localNews.length)]
+        setNewsline(randomNewsline)
+        const news = await fetchNewsFromAPI()
+        setNewsToStorage(news)
+      }
+    })
   }
 
   useEffect(() => {

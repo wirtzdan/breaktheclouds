@@ -7,6 +7,7 @@ import theme from "../theme"
 const Layout = ({ children }) => {
   return (
     <ThemeProvider theme={theme}>
+      <base href="/index.html" />
       <ColorModeProvider value="dark">
         <CSSReset />
         <main>{children}</main>

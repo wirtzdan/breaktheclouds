@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "Break The Clouds (Uplifting Corona News)",
   "description": "Replace your new tab page with positive and uplifting news regarding the corona pandemic. ",
-  "version": "0.0.3",
+  "version": "0.0.5",
   "browser_action": {},
   "permissions": ["management", "storage"],
   "icons": {
